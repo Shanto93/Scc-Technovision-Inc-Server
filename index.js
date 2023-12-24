@@ -31,6 +31,10 @@ async function run() {
 
 
     // Tasks related API
+    app.get("/tasks", async (req, res) => {
+      const result = await tasksCollection.find().toArray();
+      res.send(result);
+    });
 
     app.post('/tasks',async(req,res) => {
         const item = req.body;
